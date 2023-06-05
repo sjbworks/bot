@@ -26,7 +26,7 @@ function notifyTheNightBefore() {
   const nonBurnableText = isNonBurnableDay ? `\n${MESSAGE[8]}` : "";
   const message = `${MESSAGE[dayOfTheWeek]}${nonBurnableText}`;
 
-  if (!dayOfTheWeek || isNonBurnableDay) {
+  if (message) {
     UrlFetchApp.fetch(URL, {
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
