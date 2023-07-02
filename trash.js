@@ -3,14 +3,14 @@ const URL = "https://api.line.me/v2/bot/message/push";
 const GROUP_ID = "set group id";
 
 const MESSAGE = {
+  0: "明日は燃えるゴミの日だよ！準備しよう！",
   1: "",
-  2: "明日は食品トレイなどのプラゴミの日、あと段ボールなどの資源ゴミの日だよ！準備しよう！",
+  2: "明日はトレイなどのプラゴミの日、そして段ボールなどの資源ゴミの日だよ！準備しよう！",
   3: "明日は燃えるゴミの日だよ！準備しよう！",
   4: "明日はビン、缶、ペットボトルゴミの日だよ！準備しよう！",
   5: "",
   6: "",
-  7: "明日は燃えるゴミの日だよ！準備しよう！",
-  8: "あと明日はガラス、金属などの燃えないゴミの日だよ！",
+  7: "明日はガラス、金属、硬いプラスチックなどの燃えないゴミの日だよ！準備は大丈夫そう？",
 };
 const emptyKeys = Object.keys(MESSAGE).filter((key) => MESSAGE[key] === "");
 
@@ -23,7 +23,7 @@ function notifyTheNightBefore() {
   const dayOfTheWeek = date.getDay();
   let isNonBurnableDay =
     dayOfTheWeek === 4 && [2, 4].includes(getDayCount(date));
-  const nonBurnableText = isNonBurnableDay ? `\n${MESSAGE[8]}` : "";
+  const nonBurnableText = isNonBurnableDay ? `\n${MESSAGE[7]}` : "";
   const message = `${MESSAGE[dayOfTheWeek]}${nonBurnableText}`;
 
   if (message) {
